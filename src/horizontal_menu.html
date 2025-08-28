@@ -11,32 +11,28 @@
     <div class="bg-white shadow-md border-b sticky top-0 z-50">
         <div class="overflow-x-auto scrollbar-hide">
             <nav class="flex space-x-1 px-4 py-3 min-w-max">
-                <a href="#" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200 whitespace-nowrap">
-                    Dashboard
-                </a>
-                <a href="#" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200 whitespace-nowrap">
-                    Analytics & Reports
+                <select class="bg-white flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200 whitespace-nowrap" name="options" id="options">
+                    <option value="2025">Season 2025</option>
+                    <option value="2024">Season 2024</option>
+                    <option value="2023">Season 2023</option>
+                </select>
+                <a href="horizontal_menu.html" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200 whitespace-nowrap">
+                    Login
                 </a>
                 <a href="#" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md whitespace-nowrap">
-                    User Management
+                    SignUp
                 </a>
                 <a href="#" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200 whitespace-nowrap">
-                    Content Management
+                    Parental/Group SignUp
                 </a>
                 <a href="#" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200 whitespace-nowrap">
-                    Settings & Configuration
+                    Merit Points
                 </a>
                 <a href="#" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200 whitespace-nowrap">
-                    API Documentation
+                    Donation
                 </a>
                 <a href="#" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200 whitespace-nowrap">
-                    Billing & Subscriptions
-                </a>
-                <a href="#" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200 whitespace-nowrap">
-                    Help & Support
-                </a>
-                <a href="#" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors duration-200 whitespace-nowrap">
-                    Advanced Features
+                    Fundraiser
                 </a>
             </nav>
         </div>
@@ -123,7 +119,7 @@
     <div class="p-8">
         <h1 class="text-2xl font-bold text-gray-800 mb-4">Horizontal Scrollable Menu Demo</h1>
         <p class="text-gray-600">
-            The menus above demonstrate different styles of horizontal scrollable navigation. 
+            The menus above demonstrate different styles of horizontal scrollable navigation.
             On smaller screens or when the content is wider than the container, users can scroll horizontally to see all menu items.
         </p>
         <p class="text-gray-600 mt-4">
@@ -136,7 +132,7 @@
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
-        
+
         /* Hide scrollbar for IE, Edge and Firefox */
         .scrollbar-hide {
             -ms-overflow-style: none;  /* IE and Edge */
