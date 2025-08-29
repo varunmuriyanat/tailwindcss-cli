@@ -8,9 +8,7 @@
     </head>
     <body class="bg-gray-900 text-gray-100 font-sans">
         <div id="root">
-            <!-- <aside id="sidebar"class="hidden lg:block w-64 bg-gray-800 h-screen fixed left-0 top-0 shadow-lg">
-                 -->
-            <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-gray-800 text-white transform -translate-x-full transition-transform duration-300">
+            <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-gray-800 text-white transform transition-transform duration-300">
                 <div class="p-6">
                     <div><img src="/assets/real-estate-logo.jpg" class="sm:w-32" /></div>
                     <nav class="space-y-2">
@@ -23,7 +21,7 @@
                 </div>
             </aside>
             <main id="main" name="main" class="lg:ml-64 min-h-screen p-2">
-                <div id="hamburger" name="hamburger" class="lg:hidden">
+                <div id="hamburger" name="hamburger" class="lg:hidden fixed top-4 right-4">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -35,63 +33,39 @@
             </main>
         </div>
         <script>
-            const details = document.getElementById("details");
-            const hamburger = document.getElementById("hamburger");
-            const sidebar = document.getElementById("sidebar");
-
-            hamburger.addEventListener("click", () => {
-                sidebar.classList.toggle("-translate-x-full"); // hides sidebar
-            });
-
-            details.addEventListener("click", () => {
-                const width = window.innerWidth;
-
-                if (width <= 768) {
-                    if (!sidebar.classList.contains('-translate-x-full')) {
-                        sidebar.classList.add("-translate-x-full"); // hides sidebar
-                    }
-                }
-
-                // sidebar.classList.forEach(className => {
-                //     console.log(className);
-                // });
-            });
+            function showSidebar() {
+                const sidebar = document.getElementById("sidebar");
+                sidebar.classList.remove("-translate-x-full");
+            }
 
             function hideSidebar() {
                 const sidebar = document.getElementById("sidebar");
                 sidebar.classList.add("-translate-x-full");
             }
 
-            function showSidebar() {
+            function toggleSidebar() {
                 const sidebar = document.getElementById("sidebar");
-                sidebar.classList.remove("-translate-x-full");
+                sidebar.classList.toggle("-translate-x-full");
             }
 
-            window.addEventListener('resize', function() {
-                console.log('Viewport changed!');
-                console.log('New size:', window.innerWidth, 'x', window.innerHeight);
+            // on reload set the visibility of the sidebar
+            if (window.innerWidth >= 768) {
+                showSidebar();
+            } else {
+                hideSidebar();
+            }
 
-                // Your code here
-                handleViewportChange();
-            });
-
-            function handleViewportChange() {
-                const width = window.innerWidth;
-
-                if (width >= 1024) {
-                    // Large screen - desktop
-                    console.log('Desktop view');
-                    showSidebar();
-                } else if (width >= 768) {
-                    // Medium screen - tablet
-                    console.log('Tablet view');
+            //set event listener for window resize
+            window.addEventListener("resize", () => {
+                if (window.innerWidth >= 768) {
                     showSidebar();
                 } else {
-                    // Small screen - mobile
-                    console.log('Mobile view');
                     hideSidebar();
                 }
-            }
+            });
+
+            // show sidebar on clicking hamburger
+            document.getElementById("hamburger").addEventListener("click", toggleSidebar);
         </script>
     </body>
 </html>
